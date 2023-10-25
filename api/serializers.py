@@ -12,8 +12,12 @@ class SmsSerializer(serializers.ModelSerializer):
         model = Sms
         fields = [SmsVO.sender, SmsVO.receptor, SmsVO.text, SmsVO.provider]
 
-# class SmsReportSerializer(serializers.Serializer):
-#     start_date = mode
-#     class Meta:
-#         model = Sms
-#         fields = ['start_date', 'end_date']
+class SmsListSerializer(serializers.ModelSerializer):
+    sender = serializers.IntegerField()
+    receptor = serializers.IntegerField()
+    text = serializers.CharField()
+    created_at = serializers.DateTimeField()
+
+    class Meta:
+        model = Sms
+        fields = [SmsVO.sender, SmsVO.receptor, SmsVO.text, 'created_at']

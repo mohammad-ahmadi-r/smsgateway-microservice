@@ -2,7 +2,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import SmsSerializer
+from .serializers import SmsSerializer, SmsListSerializer
 from .vo import SmsVO
 from .models import Sms
 from rest_framework.permissions import AllowAny, IsAdminUser
@@ -28,7 +28,7 @@ class SmsController(ViewSet):
     def sms_report(self, request: Request) -> Response:
         try:
             report = Sms.objects.all()
-            serialized_response = SmsSerializer(report, many=True)
+            serialized_response = SmsListSerializer(report, many=True)
             return Response(data=serialized_response.data, status=status.HTTP_200_OK)
         except Exception as error:
             return Response(data = error, status=status.HTTP_400_BAD_REQUEST)
