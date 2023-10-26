@@ -1,4 +1,4 @@
-## SMS gateway
+# SMS gateway
 
 ## Setting Up The Environment
 To set up the environment, follow these steps:
