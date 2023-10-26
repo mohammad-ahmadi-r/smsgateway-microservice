@@ -34,4 +34,4 @@ Here are some examples of API endpoints available in the application:
 # Background Processing
 The application uses Celery to handle background processing of sending sms, it'll be added to a queue and processed asynchronously.
 - In another terminal run this command -> celery -A sms_gateway.celery worker --loglevel=info
-  or if you using docker-compose just check the main terminal on celery container logs
+  or if you using docker-compose just check the main terminal or celery container logs
