@@ -6,8 +6,8 @@ from .serializers import SmsSerializer, SmsListSerializer
 from .vo import SmsVO
 from .models import Sms
 from rest_framework.permissions import AllowAny, IsAdminUser
-# from kavenegar import *
 from .tasks import send_sms
+
 
 class SmsController(ViewSet):
     def send_sms(self, request: Request) -> Response:

@@ -2,6 +2,7 @@ from rest_framework import serializers
 from . models import Sms
 from .vo import SmsVO
 
+
 class SmsSerializer(serializers.ModelSerializer):
     sender = serializers.IntegerField(required=False)
     receptor = serializers.IntegerField()
