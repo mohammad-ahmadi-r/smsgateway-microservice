@@ -1,20 +1,22 @@
-## Task Management App
+# SMS gateway
 
 ## Setting Up The Environment
 To set up the environment, follow these steps:
 
 - Clone the repository and install dependencies using pip: pip install -r requirements.txt
 - Create a .env file and put your variables in it
+  ### Local
 - Run migrations to set up the database: python manage.py migrate
 - Start the development server: python manage.py runserver
-  # or
+  ### Docker
 - docker-compose build
 - docker-compose up
   
 # Testing
 The application includes test cases for SMS sending and listing: 
    - python manage.py test api.tests.CreateSmsTest
-   - python manage.py test api.tests.ListSmsTest 
+   - python manage.py test api.tests.ListSmsTest
+   - #### you can run celery in another terminal if you want async sms sending happens in testing
 
 
 # API Endpoints
@@ -32,4 +34,4 @@ Here are some examples of API endpoints available in the application:
 # Background Processing
 The application uses Celery to handle background processing of sending sms, it'll be added to a queue and processed asynchronously.
 - In another terminal run this command -> celery -A sms_gateway.celery worker --loglevel=info
-  or if you using docker-compose just check the main terminal on celery container logs
+  or if you using docker-compose just check the main terminal or celery container logs
