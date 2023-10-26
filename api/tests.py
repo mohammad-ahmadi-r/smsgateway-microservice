@@ -4,13 +4,15 @@ from django.urls import reverse
 from rest_framework.test import APITestCase
 from rest_framework import status
 from .serializers import SmsSerializer, SmsListSerializer
+from .vo import SmsVO
+
 
 class CreateSmsTest(TestCase):
     def test_sms_exsition(self):
-        sender = '09913236310'
-        receptor = '09390109951'
-        text = 'hi there'
-        provider = 'kavenegar'
+        sender = SmsVO.default_sender
+        receptor = SmsVO.test_default_receptor
+        text = 'this is a test message'
+        provider = SmsVO.test_default_provider
 
         response = self.client.post(
             reverse('smscontroller'),
@@ -30,6 +32,7 @@ class ListSmsTest(APITestCase):
     def setUp(self):
         Sms(sender='9123456789', receptor='9125436798', text= 'hi there').save()
         Sms(sender='9123478945', receptor='9125436248', text= 'how are you doing').save()
+        Sms(sender=SmsVO.default_sender, receptor='9125436248', text= 'how are you doing').save()
         
     def test_get_all_queryset(self):
         url = reverse('smscontroller')
