@@ -21,12 +21,12 @@ The application includes test cases for SMS sending and listing:
 Here are some examples of API endpoints available in the application:
 
 - GET /api/: Retrieves a list of all sent sms
-- POST /api/: Send a sms 
-    "body": {
-					"sender"(optional): "30000000000000",
-					"receptor"(require): "09123456789",
-					"text"(require): "SMS MESSAGE",
-          "provider"(optional): "smsir(default) or qasedak"
+- POST /api/: Send a sms     
+    "body": {       
+  	"sender"(optional): "30000000000000",     
+	"receptor"(require): "09123456789",     
+	"text"(require): "SMS MESSAGE",     
+  	"provider"(optional): "smsir(default) or qasedak"     
 				}
 
 # Background Processing
