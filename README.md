@@ -16,7 +16,7 @@ To set up the environment, follow these steps:
 The application includes test cases for SMS sending and listing: 
    - python manage.py test api.tests.CreateSmsTest
    - python manage.py test api.tests.ListSmsTest
-### you can run celery in another terminal if you want async sms sending happens in testing
+   - #### you can run celery in another terminal if you want async sms sending happens in testing
 
 
 # API Endpoints
